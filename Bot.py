@@ -1,9 +1,7 @@
 import telebot, Config, Parser, os
 from telebot import types
 
-token = os.envirson.get('bot_token')
-
-bot = telebot.TeleBot(str(token))
+bot = telebot.TeleBot(Config.Token)
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
