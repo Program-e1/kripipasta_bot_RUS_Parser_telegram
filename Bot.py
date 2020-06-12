@@ -2,7 +2,7 @@ import telebot, os, requests, random
 from bs4 import BeautifulSoup
 from telebot import types
 
-Token = '1266346072:AAHu0MZ53dIVdgAts5GRvZ3S3Rjn9LnxW4o'
+Token = os.environ.get('token_heroku')
 Opus = "Крипипа́ста (англ. creepypasta, от англ. creepy — «жуткий» и разг. англ. copypaste — «копипаста, скопированный текст») — жанр интернет-фольклора, представляющий собой небольшие рассказы, цель которых — напугать читателя. С помощью этого бота вы сможете получить истории в формате txt файла. Для этого нажмите кнопку 'Сгенерировать историю'."
 Admin = 'Есть вопрос? Или вы хотите улучшить этот сервис. Пишите ваши предложение на адрес => program.e1@mail.ru'
 
@@ -37,7 +37,7 @@ def  START():
 	cars = get_URL(html.text)
 	return get_content(cars[random.randrange(0,len(cars))])
 
-bot = telebot.TeleBot(Token)
+bot = telebot.TeleBot(str(Token))
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
